@@ -8,15 +8,15 @@
 		body{
 			font-size: 17px;
 			font-family: arial;
-			background: #f4f4f4;
+			background: #faf6f6;
 			line-height: 1.5em;
 		}
 		header{
-			background:#333;
+			background:rgb(123, 109, 252);
 			color:#fff;
 			padding:20px;
 			text-align: center;
-			border-bottom: 4px #000 solid;
+			border-bottom: 4px rgb(66, 4, 107) solid;
 			margin-bottom: 10px;
 		}
 		#container{
@@ -29,7 +29,11 @@
 <body>
 	<header>
 		<h1>Coding Quiz</h1>
-	</header>
+    </header>
+
+    <!-- <h1 class="time"></h1>
+    <div id="main"></div> -->
+
 	<div id="container">
 		
 		<button id="btn1">High Scores</button>
@@ -39,56 +43,160 @@
 			"What does HTML stand for?"<br><br>
 			<button id="btnA">A  Hyper text Markeup Language</button><br>
 			<button id="btnB">B Hyperlinks and Text Markup Languages</button><br>
-			<button id="btnC">C Home Tool Markup Language</button><br></p>
-		
+            <button id="btnC">C Home Tool Markup Language</button><br></p>
+            
+        <p class='question2'>Question 2:<br><br>
+            "What does CSS stand for?"<br><br>
+            <button id="btn2A">A  Completely Self Sufficient</button><br>
+            <button id="btn2B">B Computer Style Sheet</button><br>
+            <button id="btn2C">C Cascading Style Sheet</button><br></p>
+
+        <p class='question3'>Question 3:<br><br>
+            "What is the purpose of a Bootcamp?"<br><br>
+            <button id="btn3A">A  To teach you perseverance</button><br>
+            <button id="btn3B">B To teach you to find your own solutions</button><br>
+            <button id="btn3C">C Both A and B</button><br></p>
+
+        <p class='question4'>Question 4:<br><br>
+            "What is the correct way to link a javascript file?"<br><br>
+            <button id="btn4A">A  Make sure it appears within the body section</button><br>
+            <button id="btn4B">B Use the script tags</button><br>
+            <button id="btn4C">C There is no need for a link, html finds it on its own</button><br></p>  
 	</div>
 
 	<script>
-	
-	// 		correct : "A"
-	// 	}
-	// 	{
-	// 		question : "What does CSS stand for?",
-	// 		choiceA : "Completely Self Sufficient",
-	// 		choiceB : "Computer Style Sheet",
-	// 		choiceC : "Cascading Style Sheet",
-	// 		correct : "C"
-	// 	}
-	// 	{
-	// 		question : "What is the purpose of a Bootcamp?",
-	// 		choiceA : "To teach you perseverance",
-	// 		choiceB : "To teach you to find your own solutions",
-	// 		choiceC : "Both A and B",
-	// 		correct : "C"
-	// 	}
-	// 	{
-	// 		question : "What is the correct way to link a javascript file?",
-	// 		choiceA : "Use the script tags",
-	// 		choiceB : "Make sure it appears within the body section",
-	// 		choiceC : "There is no need for a link, html finds it on its own",
-	// 		correct : "A"
-	
-	// 	}
-	// ]
-	
+//         // timer javascript from exercise
+//         var timeEl = document.querySelector(".time");
+// var mainEl = document.getElementById("main");
+
+// var secondsLeft = 10;
+
+// function setTime() {
+//   var timerInterval = setInterval(function() {
+//     secondsLeft--;
+//     timeEl.textContent = secondsLeft + " seconds left till colorsplosion.";
+
+//     if(secondsLeft === 0) {
+//       clearInterval(timerInterval);
+//       sendMessage();
+//     }
+
+//   }, 1000);
+// }
+
+// function sendMessage() {
+//   timeEl.textContent = " ";
+
+//   var imgEl = document.createElement("img");
+
+//   imgEl.setAttribute("src", "images/image_1.jpg");
+//   mainEl.appendChild(imgEl);
+
+// }
+
+// setTime();
+
+// end timer from exercise
+
+	var score = 0
+
+        // hides the question until start quiz is clicked
 		$(document).ready(function() {
     	$('.question1').hide();
+        $('.question2').hide();
+        $('.question3').hide();
+        $('.question4').hide();
 		});
 
-		$('#btn2').on('click', function() {
+   // start button is clicked, shows the first question and hides start button
+      $('#btn2').on('click', function() {
 			$('.question1').show();
 			$('#btn2').hide();
-			
 		});
 
-		$('#btn2').on('click', function(){
-			$('.para1').show();
+        // When an answer is clicked, the question gets hidden and the next question is shown.
+		$('#btnA').on('click', function() {
+			$('.question1').hide();
+            $('.question2').show();
+            score++
 		});
 
+        $('#btnB').on('click', function(){
+			$('.question1').hide();
+            $('.question2').show();
+		});
 
+        $('#btnC').on('click', function(){
+			$('.question1').hide();
+            $('.question2').show();
+		});
+// show question 2
+        $('#btn2A').on('click', function() {
+			$('.question2').hide();
+            $('.question3').show();
+		});
 
+        $('#btn2B').on('click', function(){
+			$('.question2').hide();
+            $('.question3').show();
+		});
 
+        $('#btn2C').on('click', function(){
+			$('.question2').hide();
+            $('.question3').show();
+            score++
+		});
+// show question 3
+        $('#btn3A').on('click', function() {
+			$('.question3').hide();
+            $('.question4').show();
+		});
 
+        $('#btn3B').on('click', function(){
+			$('.question3').hide();
+            $('.question4').show();
+		});
+
+        $('#btn3C').on('click', function(){
+			$('.question3').hide();
+            $('.question4').show();
+            score++
+		});
+// show question 4
+        $('#btn4A').on('click', function() {
+			$('.question3').hide();
+            $('.question4').show();
+		});
+
+        $('#btn4B').on('click', function(){
+			$('.question3').hide();
+            $('.question4').show();
+            score++
+		});
+
+        $('#btn4C').on('click', function(){
+			$('.question3').hide();
+            $('.question4').show();
+		});
+
+// End Questions, show score
+        $('#btn4A').on('click', function() {
+			$('.question4').hide();
+			$('.question3').hide();
+		});
+
+        $('#btn4B').on('click', function(){
+            $('.question4').hide();
+			$('.question3').hide();
+
+		});
+
+        $('#btn4C').on('click', function(){
+			$('.question4').hide();
+            window.location.href = "highscores.html"
+            score++
+
+		});
 
 
 
