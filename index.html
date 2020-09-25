@@ -1,51 +1,98 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JQuery | Selectors</title>
+	<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+	
+		<style>
+		body{
+			font-size: 17px;
+			font-family: arial;
+			background: #f4f4f4;
+			line-height: 1.5em;
+		}
+		header{
+			background:#333;
+			color:#fff;
+			padding:20px;
+			text-align: center;
+			border-bottom: 4px #000 solid;
+			margin-bottom: 10px;
+		}
+		#container{
+			width:90%;
+			margin:auto;
+			padding:10px;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<h1>Coding Quiz</h1>
+	</header>
+	<div id="container">
+		
+		<button id="btn1">High Scores</button>
+		<button id="btn2">Start Quiz</button>
+		
+		<p class='question1'>Question 1:<br><br>
+			"What does HTML stand for?"<br><br>
+			<button id="btnA">A  Hyper text Markeup Language</button><br>
+			<button id="btnB">B Hyperlinks and Text Markup Languages</button><br>
+			<button id="btnC">C Home Tool Markup Language</button><br></p>
+		
+	</div>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<script>
+	
+	// 		correct : "A"
+	// 	}
+	// 	{
+	// 		question : "What does CSS stand for?",
+	// 		choiceA : "Completely Self Sufficient",
+	// 		choiceB : "Computer Style Sheet",
+	// 		choiceC : "Cascading Style Sheet",
+	// 		correct : "C"
+	// 	}
+	// 	{
+	// 		question : "What is the purpose of a Bootcamp?",
+	// 		choiceA : "To teach you perseverance",
+	// 		choiceB : "To teach you to find your own solutions",
+	// 		choiceC : "Both A and B",
+	// 		correct : "C"
+	// 	}
+	// 	{
+	// 		question : "What is the correct way to link a javascript file?",
+	// 		choiceA : "Use the script tags",
+	// 		choiceB : "Make sure it appears within the body section",
+	// 		choiceC : "There is no need for a link, html finds it on its own",
+	// 		correct : "A"
+	
+	// 	}
+	// ]
+	
+		$(document).ready(function() {
+    	$('.question1').hide();
+		});
 
-    <title>Hello, world!</title>
-  </head>
-  <body>
+		$('#btn2').on('click', function() {
+			$('.question1').show();
+			$('#btn2').hide();
+			
+		});
 
-    <h1>Coding Quiz Challenge</h1>
-    <h5><a href="View highscores"> view highscores</h5>
-
-
-    <div id="start"> Start Quiz!</div>
-    <!-- display is none because we only need to display start quiz once at the beginning -->
-    <div id="quiz" style = "display : none;">
-
-        <!-- Here is the question -->
-        <div id="question"><p> Question </p></div>
-        <!-- here is the counter -->
-        <div id="counter">60</div>
-        <!-- here are the choices -->
-        <div id ="choices">
-            <div class="choice" id="A" onclick="checkAnswer('A')">A</div>
-            <div class="choice" id="B" onclick="checkAnswer('A')">B</div>
-            <div class="choice" id="C" onclick="checkAnswer('A')">C</div>
-        </div>
-
-        
+		$('#btn2').on('click', function(){
+			$('.para1').show();
+		});
 
 
-  </div>
-  <!-- display is none because we only need to display start quiz once at the beginning -->
-  <div id="scoreContainer" style ="display : none;">
-        <img src="smile.png"><p>50%</p>
-    </div>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
 
-  </body>
+
+
+
+
+		
+	</script>
+</body>
 </html>
