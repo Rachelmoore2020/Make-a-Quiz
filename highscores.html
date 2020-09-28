@@ -29,9 +29,56 @@
 <body>
     <header>
         <h1>High Scores</h1>
-    </header>
+	</header>
+	
     <div id="container">
-        <A HREF = "index.html">Back to Quiz</A>
+		<A href = "index.html">Back to Quiz</A>
+
+		
+		<p id="myResult">Results:</p>
+		<p id="highscores"></p>
+		<p id="cleared"></p>
+
+		
+			<label for="initials">Initials:</label>
+			<input type="text" id="initials" name="initials"><br><br>
+		
+		  <button onclick="displayResults()">Submit</button>
+		  <button onclick="clearScores()">Clear Scores</button>
+
+		  <script>
+		document.getElementById(highscores).innerHTML = highscores;
+		
+
+// 		function clearScores(event) {
+// 			event.preventDefault();
+
+// 			document.getElementById("highscores").innerHTML
+
+// }
+
+		function displayResults() {
+			var initials = document.getElementById("initials").value;
+			var localstore = localStorage.getItem("secondsLeft")
+			var highscores = document.getElementById("myResult").innerHTML = initials + localstore;
+			localStorage.setItem("highscores", highscores);
+			document.getElementById(highscores).innerHTML = highscores;
+		
+}
+
+displayResults() 
+
+			function clearScores(event) {
+			event.preventDefault();
+			var cleared = document.getElementById("highscores").innerHTML
+			document.getElementById("cleared").innerHTML;
+			console.log("cleared", cleared);
+
+
+}
+
+
+		  </script>
     
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>JQuery | Selectors</title>
+	<title>Coding Quiz Homework</title>
 	<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
 	
 		<style>
@@ -36,7 +36,10 @@
 
 	<div id="container">
 		
-		<A HREF = "highscores.html">High Scores</A>
+		<div><a class='newPage' href = "highscores.html">High Scores</a>
+		</div>
+		<h3 class="time" text-align=right>Timer: <span id='seconds'>30</span></h3>
+
 		<button id="btn2">Start Quiz</button>
 		
 		<p class='question1'>Question 1:<br><br>
@@ -65,40 +68,15 @@
 	</div>
 
 	<script>
-//         // timer javascript from exercise
-//         var timeEl = document.querySelector(".time");
-// var mainEl = document.getElementById("main");
 
-// var secondsLeft = 10;
+	var timeEl = document.querySelector("#seconds");
+	var secondsLeft = 30
 
-// function setTime() {
-//   var timerInterval = setInterval(function() {
-//     secondsLeft--;
-//     timeEl.textContent = secondsLeft + " seconds left till colorsplosion.";
-
-//     if(secondsLeft === 0) {
-//       clearInterval(timerInterval);
-//       sendMessage();
-//     }
-
-//   }, 1000);
-// }
-
-// function sendMessage() {
-//   timeEl.textContent = " ";
-
-//   var imgEl = document.createElement("img");
-
-//   imgEl.setAttribute("src", "images/image_1.jpg");
-//   mainEl.appendChild(imgEl);
-
-// }
-
-// setTime();
-
-// end timer from exercise
 
 	var score = 0
+	score.textContent = count;
+	var count = localStorage.getItem("count");
+	
 
         // hides the question until start quiz is clicked
 		$(document).ready(function() {
@@ -112,13 +90,33 @@
       $('#btn2').on('click', function() {
 			$('.question1').show();
 			$('#btn2').hide();
+			setTime();
 		});
+
+		function setTime() {
+  var timerInterval = setInterval(function() {
+    secondsLeft--;
+	timeEl.textContent = secondsLeft + 'Seconds Left'
+
+    if(secondsLeft === 0) {
+      clearInterval(timerInterval);
+      sendMessage();
+    }
+
+  }, 1000);
+}
+function sendMessage() {
+  timeEl.textContent = "Time Up!";
+
+}
+
 
         // When an answer is clicked, the question gets hidden and the next question is shown.
 		$('#btnA').on('click', function() {
 			$('.question1').hide();
             $('.question2').show();
             score++
+
 		});
 
         $('#btnB').on('click', function(){
@@ -180,27 +178,50 @@
 		});
 
 // End Questions, show score
-        $('#btn4A').on('click', function() {
-			$('.question4').hide();
-			$('.question3').hide();
-		});
-
-        $('#btn4B').on('click', function(){
-            $('.question4').hide();
-			$('.question3').hide();
-
-		});
-
-        $('#btn4C').on('click', function(){
-			$('.question4').hide();
-            window.location.href = "highscores.html"
-            score++
-
-		});
-
-
-
+		btn4A.addEventListener('click', function() {
+			localStorage.setItem("secondsLeft", secondsLeft);
+			window.location.href = "highscores.html";
+		})
 		
+		btn4B.addEventListener('click', function() {
+			score++
+			localStorage.setItem("secondsLeft", secondsLeft);
+			window.location.href = "highscores.html";
+		})
+		
+		btn4C.addEventListener('click', function() {
+			localStorage.setItem("secondsLeft", secondsLeft);
+			window.location.href = "highscores.html";
+		})
+		
+
+        // $('#btn4C').on('click', function(){
+        // score++
+        // console.log("score", score);
+		// window.location.href = "highscores.com";
+		// });
+		
+
+// 		code fix from stack overflow
+// 		// For adding scores
+// $('#btnA, #btn2B, #btn3x, ....').click(function() { 
+//   score++; 
+// });
+
+// // for hiding and showing 
+// // do change all classes to just 'question'
+
+// // or use [class^=question] as the selector
+
+// $('.question > button').click(function() {
+//   $(this).parent().hide().next('.question').show();
+// });
+
+
+
+
 	</script>
+	
+
 </body>
 </html>
