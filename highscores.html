@@ -34,12 +34,10 @@
     <div id="container">
 		<A href = "index.html">Back to Quiz</A>
 
-		
 		<p id="myResult">Results:</p>
 		<p id="highscores"></p>
 		<p id="cleared"></p>
 
-		
 			<label for="initials">Initials:</label>
 			<input type="text" id="initials" name="initials"><br><br>
 		
@@ -48,14 +46,6 @@
 
 		  <script>
 		document.getElementById(highscores).innerHTML = highscores;
-		
-
-// 		function clearScores(event) {
-// 			event.preventDefault();
-
-// 			document.getElementById("highscores").innerHTML
-
-// }
 
 		function displayResults() {
 			var initials = document.getElementById("initials").value;
@@ -64,9 +54,7 @@
 			localStorage.setItem("highscores", highscores);
 			console.log("highscores", highscores);
 			document.getElementById(highscores).innerHTML = highscores;
-		
 }
-
 displayResults() 
 
 			function clearScores(event) {
@@ -74,12 +62,7 @@ displayResults()
 			var cleared = document.getElementById("highscores").innerHTML
 			document.getElementById("cleared").innerHTML;
 			console.log("cleared", cleared);
-
-
 }
-
-
 		  </script>
-    
 </body>
 </html>
