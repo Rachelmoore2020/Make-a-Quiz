@@ -62,6 +62,7 @@
 			var localstore = localStorage.getItem("secondsLeft")
 			var highscores = document.getElementById("myResult").innerHTML = initials + localstore;
 			localStorage.setItem("highscores", highscores);
+			console.log("highscores", highscores);
 			document.getElementById(highscores).innerHTML = highscores;
 		
 }

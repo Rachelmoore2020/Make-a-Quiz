@@ -96,7 +96,7 @@
 		function setTime() {
   var timerInterval = setInterval(function() {
     secondsLeft--;
-	timeEl.textContent = secondsLeft + ' Seconds Left'
+	timeEl.textContent = secondsLeft + 'Seconds Left'
 
     if(secondsLeft === 0) {
       clearInterval(timerInterval);
@@ -106,7 +106,7 @@
   }, 1000);
 }
 function sendMessage() {
-  timeEl.textContent = "Times Up!";
+  timeEl.textContent = "Time Up!";
 
 }
 
@@ -115,75 +115,66 @@ function sendMessage() {
 		$('#btnA').on('click', function() {
 			$('.question1').hide();
             $('.question2').show();
-            
+            score++
 
 		});
 
         $('#btnB').on('click', function(){
 			$('.question1').hide();
             $('.question2').show();
-			secondsLeft--
-
 		});
 
         $('#btnC').on('click', function(){
 			$('.question1').hide();
             $('.question2').show();
-			secondsLeft--
 		});
 // show question 2
         $('#btn2A').on('click', function() {
 			$('.question2').hide();
             $('.question3').show();
-			secondsLeft--
 		});
 
         $('#btn2B').on('click', function(){
 			$('.question2').hide();
             $('.question3').show();
-			secondsLeft--
 		});
 
         $('#btn2C').on('click', function(){
 			$('.question2').hide();
             $('.question3').show();
-            
+            score++
 		});
 // show question 3
         $('#btn3A').on('click', function() {
 			$('.question3').hide();
             $('.question4').show();
-			secondsLeft--
 		});
 
         $('#btn3B').on('click', function(){
 			$('.question3').hide();
             $('.question4').show();
-			secondsLeft--
 		});
 
         $('#btn3C').on('click', function(){
 			$('.question3').hide();
             $('.question4').show();
-            
+            score++
 		});
 // show question 4
         $('#btn4A').on('click', function() {
 			$('.question3').hide();
             $('.question4').show();
-			secondsLeft--
 		});
 
         $('#btn4B').on('click', function(){
 			$('.question3').hide();
             $('.question4').show();
-            
+            score++
 		});
 
         $('#btn4C').on('click', function(){
 			$('.question3').hide();
             $('.question4').show();
-			secondsLeft--
 		});
 
 // End Questions, show score
@@ -193,6 +184,7 @@ function sendMessage() {
 		})
 		
 		btn4B.addEventListener('click', function() {
+			score++
 			localStorage.setItem("secondsLeft", secondsLeft);
 			window.location.href = "highscores.html";
 		})
