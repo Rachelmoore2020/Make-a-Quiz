@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highscores</title>
+    <style>
+		body{
+			font-size: 17px;
+			font-family: arial;
+			background: #faf6f6;
+			line-height: 1.5em;
+		}
+		header{
+			background:rgb(123, 109, 252);
+			color:#fff;
+			padding:20px;
+			text-align: center;
+			border-bottom: 4px rgb(66, 4, 107) solid;
+			margin-bottom: 10px;
+		}
+		#container{
+			width:90%;
+			margin:auto;
+			padding:10px;
+		}
+	</style>
+</head>
+<body>
+    <header>
+        <h1>High Scores</h1>
+	</header>
+	
+    <div id="container">
+		<A href = "index.html">Back to Quiz</A>
+​
+		<p id="myResult">Results:</p>
+		<p id="highscores"></p>
+		<p id="cleared"></p>
+​
+			<label for="initials">Initials:</label>
+			<input type="text" id="initials" name="initials"><br><br>
+		
+		  <button onclick="displayResults()">Submit</button>
+		  <button onclick="clearScores()">Clear Scores</button>
+​
+		  <script>
+		// document.getElementById("highscores").innerHTML = highscores;
+		// console.log("here", document.getElementById("highscores").innerHTML);
+​
+​
+		function displayResults() {
+			var initials = document.getElementById("initials").value;
+			var localstore = localStorage.getItem("secondsLeft")
+			var highscores = document.getElementById("myResult")
+			// Clear the html when new scores are recorded 
+			highscores.innerHTML = '' 
+​
+			// If there are scores saved in the leaderBoard parse the results or display and empty array  
+			let leaderBoard = JSON.parse(window.localStorage.getItem("leaderBoard")) || [];
+			// Object to keep track of new scores 
+			let newScore = {
+				score:  localstore,
+				name: initials
+			}
+			// If a user enters their initials do the following  
+			if (initials){
+				// Add new highscore to the leaderboard 
+				leaderBoard.push(newScore) 
+				// Set the leaderboard to local storage 
+				window.localStorage.setItem("leaderBoard", JSON.stringify(leaderBoard));
+				console.log("leader board: ", leaderBoard)
+				// for each item in the leader board create a new list item to display in the results  
+				leaderBoard.forEach(function(newScore) {
+					
+					var liTag = document.createElement("li");
+					liTag.textContent = newScore.name + " - " + newScore.score;
+​
+					highscores.append(liTag);
+				});
+			}
+}
+displayResults() 
+​
+			function clearScores(event) {
+				// clear local storage to remove current leader board 
+				window.localStorage.removeItem("leaderBoard");
+  				window.location.reload();
+			// event.preventDefault();
+			// var cleared = document.getElementById("highscores").innerHTML
+			// document.getElementById("cleared").innerHTML;
+			// console.log("cleared", cleared);
+			
+}
+		// var highscores = JSON.parse(window.localStorage.getItem("highscores")) || []
+​
+// They key is making sure you are storing an array of scores in local storage. The best way to do this is, before saving your highscore, you want to retrieve any scores that might exist inside an array and then push your new score to that array before setting it in local storage
+// [1:08 PM] Something like this var highscores = JSON.parse(window.localStorage.getItem("highscores") || [];
+// You want to have the || [] at the end just in case localstorage is empty, then it will just create highscores as an empty array
+// [1:09 PM] Then when you go to save the inormation to local storage, you can create a newScore object that holds the user's initials and score, push that newScore object your your highscores array and then set that array back in local storage
+		  </script>
+</body>
+</html>
