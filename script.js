@@ -135,26 +135,4 @@ function sendMessage() {
 		})
 		
 
-        // $('#btn4C').on('click', function(){
-        // score++
-        // console.log("score", score);
-		// window.location.href = "highscores.com";
-		// });
-		
-
-// 		code fix from stack overflow
-// 		// For adding scores
-// $('#btnA, #btn2B, #btn3x, ....').click(function() { 
-//   score++; 
-// });
-
-// // for hiding and showing 
-// // do change all classes to just 'question'
-
-// // or use [class^=question] as the selector
-
-// $('.question > button').click(function() {
-//   $(this).parent().hide().next('.question').show();
-// });
-
 
